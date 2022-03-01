@@ -1,3 +1,4 @@
+from decouple import config
 import json
 import requests
 from dicttoxml import dicttoxml
@@ -10,8 +11,8 @@ from rest_framework import status
 @api_view(('POST',))
 def getAddressDetails(request):
     try:
-        # Google GeoCoding Key 
-        key = 'AIzaSyCOD3KvY2DDzEfel-NZ_LKIWXr86EF_EUw'
+        # Google GeoCoding Key, it has been saved into enviroment variable using python decouple.
+        key = config('KEY')
         
         # Pull the body data 
         request_payload = request.data
